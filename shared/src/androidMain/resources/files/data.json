@@ -1,0 +1,44 @@
+[
+  {
+    "name": "3.000 m Lauf",
+    "unit": "MINUTES",
+    "categories": [
+      {
+        "gender": "MEN",
+        "ageRange": {"min": 18, "max": 24},
+        "performance": {"bronze": 17.83, "silver": 15.83, "gold": 13.83}
+      },
+      {
+        "gender": "MEN",
+        "ageRange": {"min": 25, "max": 29},
+        "performance": {"bronze": 17.33, "silver": 15.33, "gold": 13.33}
+      },
+      {
+        "gender": "MEN",
+        "ageRange": {"min": 30, "max": 34},
+        "performance": {"bronze": 17.67, "silver": 15.67, "gold": 13.67}
+      },
+      {
+        "gender": "WOMEN",
+        "ageRange": {"min": 18, "max": 24},
+        "performance": {"bronze": 18.5, "silver": 16.5, "gold": 14.5}
+      }
+    ]
+  },
+  {
+    "name": "10 km Lauf",
+    "unit": "MINUTES",
+    "categories": [
+      {
+        "gender": "MEN",
+        "ageRange": {"min": 18, "max": 24},
+        "performance": {"bronze": 63.33, "silver": 57.33, "gold": 51.33}
+      },
+      {
+        "gender": "MEN",
+        "ageRange": {"min": 25, "max": 29},
+        "performance": {"bronze": 62.5, "silver": 56.5, "gold": 50}
+      }
+    ]
+  }
+]

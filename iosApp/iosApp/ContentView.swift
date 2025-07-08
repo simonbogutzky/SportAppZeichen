@@ -2,27 +2,41 @@ import SwiftUI
 import Shared
 
 struct ContentView: View {
-    @State private var showContent = false
+    @State private var searchText: String = ""
+    @State private var disciplines: [Discipline] = []
+    
+    private let disciplineProvider = DisciplineProvider()
+    
     var body: some View {
-        VStack {
-            Button("Click me!") {
-                withAnimation {
-                    showContent = !showContent
+        TabView {
+            Tab("Home", systemImage: "house") {
+                Text("Home")
+            }
+            
+            Tab("Catalog", systemImage: "book") {
+                List(disciplines, id: \.name) { discipline in
+                    Text(discipline.name)
                 }
             }
-
-            if showContent {
-                VStack(spacing: 16) {
-                    Image(systemName: "swift")
-                        .font(.system(size: 200))
-                        .foregroundColor(.accentColor)
-                    Text("SwiftUI: \(Greeting().greet())")
+            
+            Tab("Settings", systemImage: "gearshape") {
+                Text("Settings")
+            }
+            
+            Tab(role: .search) {
+                NavigationStack {
+                    Text("Search")
                 }
-                .transition(.move(edge: .top).combined(with: .opacity))
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .padding()
+        .searchable(text: $searchText)
+        .task {
+            do {
+                disciplines = try await disciplineProvider.fetchDisciplines()
+            } catch {
+                
+            }
+        }
     }
 }
 
